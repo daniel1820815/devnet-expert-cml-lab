@@ -54,7 +54,7 @@ Clone this repository to your local machine and customize the lab files.
 
 2. Initialize Terraform using ```terraform init```
 
-3. Run ```terraform plan``` and review the plan before approving.
+3. Run ```terraform plan``` and review the plan before applying.
 
 4. Apply the Terraform plan with ```terraform apply``` and wait until the lab is online.
 
