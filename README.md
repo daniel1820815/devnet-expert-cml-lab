@@ -22,7 +22,7 @@ This lab was tested with the following software versions:
 
 ![Lab overview](lab_overview.png "Lab overview")
 
-The DevNet Expert Candidate Workstation (CWS) was previously within CML but is now a virtual machine on VMWare ESXi Hypervisor and external to the CML lab because of performance reasons. The following network configuration was applied to connect to the lab devices directly:
+The DevNet Expert Candidate Workstation (CWS) was previously within CML but is now a virtual machine on VMWare ESXi Hypervisor and external to the CML lab because of performance reasons. The following network configuration was applied on the CWS to connect to the lab devices directly:
 
 1. Edit ```/etc/netplan/00-cws-dhcp-config.yaml``` with your favorite editor as *sudo* and safe it:
 
