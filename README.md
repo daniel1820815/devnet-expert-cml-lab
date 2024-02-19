@@ -18,7 +18,7 @@ This lab was tested with the following software versions:
 | Router1 | CAT8000V | IOS-XE | - | 192.168.255.51 | - |
 | Router2 | CAT8000V | IOS-XE | - | 192.168.255.52 | - |
 | Nexus1 | NX-OS 9000 | NX-OS | - | 192.168.255.53 | - |
-| CWS    | CWS | Ubuntu | 192.168.1.101 | 192.168.255.2 | DevNet Expert Candidate Workstation |
+| CWS    | CWS | Ubuntu | 192.168.1.101 | - | DevNet Expert Candidate Workstation |
 
 The DevNet Expert Candidate Workstation (CWS) was previously within CML but is now a virtual machine on VMWare ESXi Hypervisor and external to the CML lab because of performance reasons. The following network configuration was applied to connect to the lab devices directly:
 
