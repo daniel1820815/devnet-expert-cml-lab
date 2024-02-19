@@ -66,14 +66,6 @@ resource "cml2_node" "ums1" {
   y              = 0
 }
 
-resource "cml2_node" "cws1" {
-  lab_id         = cml2_lab.devnet-expert.id
-  label          = "CWS"
-  nodedefinition = "cws"
-  x              = -200
-  y              = -150
-}
-
 resource "cml2_node" "nxos1" {
   lab_id         = cml2_lab.devnet-expert.id
   label          = "Nexus1"
@@ -118,34 +110,27 @@ resource "cml2_link" "l1" {
 resource "cml2_link" "l2" {
   lab_id = cml2_lab.devnet-expert.id
   node_a = cml2_node.ums1.id
-  node_b = cml2_node.cws1.id
+  node_b = cml2_node.nxos1.id
   slot_a = 1
 }
 
 resource "cml2_link" "l3" {
   lab_id = cml2_lab.devnet-expert.id
   node_a = cml2_node.ums1.id
-  node_b = cml2_node.nxos1.id
+  node_b = cml2_node.iosxe1.id
   slot_a = 2
+  slot_b = 0
 }
 
 resource "cml2_link" "l4" {
   lab_id = cml2_lab.devnet-expert.id
   node_a = cml2_node.ums1.id
-  node_b = cml2_node.iosxe1.id
+  node_b = cml2_node.iosxe2.id
   slot_a = 3
   slot_b = 0
 }
 
 resource "cml2_link" "l5" {
-  lab_id = cml2_lab.devnet-expert.id
-  node_a = cml2_node.ums1.id
-  node_b = cml2_node.iosxe2.id
-  slot_a = 4
-  slot_b = 0
-}
-
-resource "cml2_link" "l6" {
   lab_id = cml2_lab.devnet-expert.id
   node_a = cml2_node.iosxe1.id
   node_b = cml2_node.iosxe2.id
@@ -153,7 +138,7 @@ resource "cml2_link" "l6" {
   slot_b = 1
 }
 
-resource "cml2_link" "l7" {
+resource "cml2_link" "l6" {
   lab_id = cml2_lab.devnet-expert.id
   node_a = cml2_node.iosxe1.id
   node_b = cml2_node.iosxe2.id
@@ -161,7 +146,7 @@ resource "cml2_link" "l7" {
   slot_b = 2
 }
 
-resource "cml2_link" "l8" {
+resource "cml2_link" "l7" {
   lab_id = cml2_lab.devnet-expert.id
   node_a = cml2_node.iosxe1.id
   node_b = cml2_node.nxos1.id
@@ -169,7 +154,7 @@ resource "cml2_link" "l8" {
   slot_b = 1
 }
 
-resource "cml2_link" "l9" {
+resource "cml2_link" "l8" {
   lab_id = cml2_lab.devnet-expert.id
   node_a = cml2_node.iosxe2.id
   node_b = cml2_node.nxos1.id
@@ -185,7 +170,6 @@ resource "cml2_lifecycle" "top" {
     cml2_node.ext.id,
     cml2_node.nat1.id,
     cml2_node.ums1.id,
-    cml2_node.cws1.id,
     cml2_node.nxos1.id,
     cml2_node.iosxe1.id,
     cml2_node.iosxe2.id,
@@ -197,8 +181,7 @@ resource "cml2_lifecycle" "top" {
     cml2_link.l5.id,
     cml2_link.l6.id,
     cml2_link.l7.id,
-    cml2_link.l8.id,
-    cml2_link.l9.id
+    cml2_link.l8.id
   ]
   configs = {
     "NAT": file("configs/nat.conf"),
